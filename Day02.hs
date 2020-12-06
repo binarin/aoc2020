@@ -34,4 +34,4 @@ day02 = do
   print answer
   let answer' = either (error . show) (length . filter isValid') parsed
   print answer'
-  print $ [isValid' (Input 1 3 'a' "abcde")]
+  print [isValid' (Input 1 3 'a' "abcde")]
