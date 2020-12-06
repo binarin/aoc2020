@@ -1,6 +1,7 @@
 module Main where
 
 import qualified Data.Set as S
+import Day02
 
 day01 = do
   nums :: [Int] <- fmap read . lines <$> readFile "data/01.txt"
@@ -16,7 +17,6 @@ day01 = do
 
   print solution2
 
-
 main :: IO ()
 main = do
-  day01
+  day02
