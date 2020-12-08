@@ -20,6 +20,7 @@ executable aoc2020
   other-modules:       Day02
                      , Day03
                      , Day04
+                     , Day05
                      , Day08
   -- other-extensions:
   default-extensions: ScopedTypeVariables

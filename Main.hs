@@ -4,6 +4,7 @@ import qualified Data.Set as S
 import Day02
 import Day03
 import Day04
+import Day05
 import Day08
 
 day01 = do
@@ -22,4 +23,4 @@ day01 = do
 
 main :: IO ()
 main = do
-  day08
+  day05
