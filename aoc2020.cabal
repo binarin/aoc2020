@@ -20,6 +20,7 @@ executable aoc2020
   other-modules:       Day02
                      , Day03
                      , Day04
+                     , Day08
   -- other-extensions:
   default-extensions: ScopedTypeVariables
                     , MultiParamTypeClasses
@@ -27,6 +28,7 @@ executable aoc2020
                     , TypeSynonymInstances
                     , FlexibleInstances
                     , FlexibleContexts
+                    , LambdaCase
   build-depends:       base >=4.13 && <4.14
                      , containers
                      , bytestring
