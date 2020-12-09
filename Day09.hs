@@ -2,6 +2,7 @@ module Day09 (day09) where
 
 import qualified Data.Set as S
 import Data.Set (Set)
+import Debug.Trace (traceShow)
 
 
 type NumWithSums = (Int, Set Int)
@@ -26,6 +27,15 @@ nonSums depth (n:ns) sums
         cont = nonSums depth ns sums'
 
 
+encryptionWeakness :: Int -> [Int] -> Int
+encryptionWeakness target (n:ns) = go ns ns 0 n
+  where
+    go start@(s:ss) end@(e:es) sum beforeEnd
+      | sum > target = go ss end (sum - s) beforeEnd
+      | sum < target = go start es (sum + e) e
+      | sum == target = (minimum $ beforeEnd:takeWhile (/= beforeEnd) start) +
+                        (maximum $ beforeEnd:takeWhile (/= beforeEnd) start)
+
 
 day09 :: IO ()
 day09 = do
@@ -33,9 +43,11 @@ day09 = do
   let depth = 25
       (preamble, message) = splitAt depth input
       preambleSums = foldl (addNum depth) [] preamble
+      invalid = head $ nonSums depth message preambleSums
 
   -- print $ preambleSums
   -- print $ isSumOfPrevious (head message) preambleSums
-  print $ nonSums depth message preambleSums
+  print invalid
+  print $ encryptionWeakness invalid input
 
   pure ()
