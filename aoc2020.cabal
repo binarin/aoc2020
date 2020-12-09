@@ -21,6 +21,7 @@ executable aoc2020
                      , Day03
                      , Day04
                      , Day05
+                     , Day06
                      , Day08
                      , Day09
   -- other-extensions:
