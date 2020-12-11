@@ -3,6 +3,7 @@ module Day07 (day07) where
 import qualified Data.Map as M
 import Data.Map (Map)
 
+import Data.Maybe (fromMaybe)
 import qualified Data.Set as S
 import Data.Set (Set)
 
@@ -53,13 +54,19 @@ day07 = do
           contains = foldr buildContains M.empty parsed
 
           walkContains :: Map String (Set String) -> [String] -> [String]
-          walkContains m [] = []
+          walkContains _ [] = []
           walkContains m (b:bs) = direct ++ walkContains m (direct ++ bs)
             where
-              direct = case M.lookup b m of
-                         Nothing -> []
-                         Just s -> S.toList s
+              direct = maybe [] S.toList $ M.lookup b m
+
+          directMap = M.fromList parsed
+
+          expand m bag = (1::Int) + sum (descend <$> fromMaybe [] (M.lookup bag m))
+            where
+              descend (bag, count) = count * expand m bag
+
 
       print $ S.size $ S.fromList $ walkContains contains ["shiny gold"]
+      print $ expand directMap "shiny gold" - 1
       pure ()
   pure ()
