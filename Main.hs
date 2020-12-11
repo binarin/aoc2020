@@ -29,4 +29,4 @@ day01 = do
 
 main :: IO ()
 main = do
-  day11
+  day07
