@@ -16,6 +16,7 @@ import Day13
 import Day14
 import Day15
 import Day16
+import Day17
 
 day01 = do
   nums :: [Int] <- fmap read . lines <$> readFile "data/01.txt"
@@ -33,4 +34,4 @@ day01 = do
 
 main :: IO ()
 main = do
-  day16
+  day17
