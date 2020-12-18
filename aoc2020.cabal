@@ -33,6 +33,7 @@ executable aoc2020
                      , Day15
                      , Day16
                      , Day17
+                     , Day18
   -- other-extensions:
   default-extensions: ScopedTypeVariables
                     , MultiParamTypeClasses
