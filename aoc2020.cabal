@@ -34,6 +34,7 @@ executable aoc2020
                      , Day16
                      , Day17
                      , Day18
+                     , Day19
   -- other-extensions:
   default-extensions: ScopedTypeVariables
                     , MultiParamTypeClasses
@@ -51,5 +52,7 @@ executable aoc2020
                      , array
                      , vector
                      , split
+                     , string-interpolate
+                     , interpolatedstring-perl6
   -- hs-source-dirs:
   default-language:    Haskell2010
